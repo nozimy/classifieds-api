@@ -1,3 +1,3 @@
-module github.com/nozimy/classifiesd.api
+module github.com/nozimy/classifiesd-api
 
 go 1.13

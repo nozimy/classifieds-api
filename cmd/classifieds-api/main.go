@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/nozimy/classifieds-api/internal/app/server"
 	"fmt"
+	"github.com/nozimy/classifieds-api/internal/app/server"
 )
 
 func main() {
