@@ -1,3 +1,3 @@
-module github.com/nozimy/classifieds-api
+module classifieds-api
 
 go 1.13
