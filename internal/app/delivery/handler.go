@@ -4,6 +4,7 @@ import (
 	"classifieds-api/internal/app/usecase"
 	"classifieds-api/internal/model"
 	"encoding/json"
+	"errors"
 	"github.com/gorilla/mux"
 	"net/http"
 )
@@ -29,7 +30,7 @@ func (h *AdHandler) HandleGetAd(w http.ResponseWriter, r *http.Request) {
 	adObj, err := h.use.FindAd(id, r.URL.Query())
 
 	if err != nil {
-		Error(w, r, http.StatusNotFound, err)
+		Error(w, r, http.StatusNotFound, errors.New("Not Found"))
 		return
 	}
 
@@ -42,7 +43,7 @@ func (h *AdHandler) HandleGetAdList(w http.ResponseWriter, r *http.Request) {
 	ads, err := h.use.GetAds(r.URL.Query())
 
 	if err != nil {
-		Error(w, r, http.StatusNotFound, err)
+		Error(w, r, http.StatusNotFound, errors.New("Not Found"))
 		return
 	}
 
@@ -69,7 +70,7 @@ func (h *AdHandler) HandleCreateAd(w http.ResponseWriter, r *http.Request) {
 	adObj, err := h.use.CreateAd(newAd)
 
 	if err != nil {
-		Error(w, r, http.StatusNotFound, err)
+		Error(w, r, http.StatusConflict, err)
 		return
 	}
 
