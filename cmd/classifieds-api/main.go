@@ -4,6 +4,8 @@ import (
 	"classifieds-api/internal/app/server"
 	"flag"
 	"fmt"
+	_ "github.com/lib/pq"
+	"log"
 )
 
 func main() {
@@ -12,5 +14,11 @@ func main() {
 	flag.StringVar(&params.Url, "url", "/api", "url")
 	flag.Parse()
 
-	fmt.Println(params)
+	params.DatabaseURL = "host=localhost dbname=avito sslmode=disable port=5432 password=avito user=avito"
+
+	err := server.StartApp(params)
+	if err != nil {
+		fmt.Println(err)
+		log.Fatal(err)
+	}
 }
