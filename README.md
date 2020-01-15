@@ -1,5 +1,11 @@
 # Classifieds JSON API
 
+Run:
+
+- `docker-compose up` 
+
+Using Dockerfile: 
+
 - собрать контейнер `sudo docker build -t nozimdev/classifieds-api .`
 - запустить контейнер `sudo docker run -p 5000:5000 --name classifieds-api -t nozimdev/classifieds-api`
 - остановить работу контейнера `docker stop classifieds-api`
